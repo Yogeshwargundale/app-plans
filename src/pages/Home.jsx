@@ -14,7 +14,7 @@ class App extends Component {
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
       localStorage.setItem(plan,'monthly')
     this.fetchData();
   }
@@ -86,14 +86,14 @@ class App extends Component {
       // </div>
       <div>
       <Row>
-        <Col span={4}></Col>
-        <Col span={16}>
+         <Col span={4}></Col>
+        <Col span={16}> 
         <h2>plan details : {localStorage.getItem(plan) }</h2>
         <div>MONTHLY <Switch  onChange={this.onPlanChange} /> YEARLY</div>
         <Row>
         {this.state.data.map((info)=>{
          return (
-                  
+                  <Col span={4}>
                   <Card 
                     title={info.planName} 
                     cover={<Icon type='user'></Icon>}
@@ -110,6 +110,7 @@ class App extends Component {
                       }
                        
                   </Card>
+                  </Col>
                 )
         })}
         </Row>
